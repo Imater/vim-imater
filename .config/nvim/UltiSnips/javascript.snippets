@@ -1,0 +1,14 @@
+snippet story "Jsx story"
+import React from 'react';
+import storiesOf from '../../utils/storiesOf.js';
+import Title from '.';
+
+storiesOf('Title')
+  .addWithInfo('Default without props', () => (
+    <div>
+      <Title />
+    </div>
+  ));
+endsnippet
+
+
