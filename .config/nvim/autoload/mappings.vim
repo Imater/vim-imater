@@ -82,7 +82,7 @@ func! mappings#bind()
   nmap <leader>h :e /private/etc/hosts<CR>
 
   " ,sn - snippets
-  nmap <leader>sn :e ~/.vimi/.vim/UltiSnips/all.snippets<CR>
+  nmap <leader>sn :e ~/.vim/UltiSnips/all.snippets<CR>
 
   " <Space> = <PageDown>
   " nmap <Space> <PageDown>
