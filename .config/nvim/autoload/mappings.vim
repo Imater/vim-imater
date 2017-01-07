@@ -83,6 +83,8 @@ func! mappings#bind()
 
   " ,sn - snippets
   nmap <leader>sn :e ~/.vim/UltiSnips/all.snippets<CR>
+  let g:UltiSnipsListSnippets="<s-z>"
+
 
   " <Space> = <PageDown>
   " nmap <Space> <PageDown>
@@ -203,8 +205,8 @@ func! mappings#bind()
   nmap <S-PageDown> :bn<CR>
   nmap <S-PageUp> :bp<CR>
 
-  nmap <C-PageDown> :VimwikiDiaryNextDay<CR>
-  nmap <C-PageUp> :VimwikiDiaryPrevDay<CR>
+  nmap <Leader><PageDown> :VimwikiDiaryNextDay<CR>
+  nmap <Leader><PageUp> :VimwikiDiaryPrevDay<CR>
 
   " Ремапим русские символы
   set keymap=russian-jcukenwin
