@@ -579,3 +579,4 @@ au BufNewFile,BufRead *.styl set filetype=css.stylus
 au BufNewFile,BufRead *.sss set filetype=css.stylus.sugarss
 " set clipboard=unnamed
 
+let g:calendar_monday = 1

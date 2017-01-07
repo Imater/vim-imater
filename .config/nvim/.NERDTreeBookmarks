@@ -6,6 +6,7 @@ de-front ~/csssr/de/de-front
 hb ~/csssr/hb
 mg ~/csssr/mg
 relef ~/csssr/relef
+vim-imater ~/csssr/neovim/vimimater
 wiki ~/Dropbox/vimwiki
 
 redux-boilerplate ~/csssr/redux-boilerplate

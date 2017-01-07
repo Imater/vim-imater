@@ -202,6 +202,8 @@ func! mappings#bind()
   nmap <Leader>tgs :TogglStart review +CSSSR_deplomat @coding
   nmap <Leader>tgp :TogglStop<CR>:!~/csssr/earn.sh<CR>
 
+  nmap <Leader>d :new \| :resize 15 \| :VimwikiMakeDiaryNote<CR>
+
   nmap <S-PageDown> :bn<CR>
   nmap <S-PageUp> :bp<CR>
 
