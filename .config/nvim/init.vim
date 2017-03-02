@@ -557,7 +557,6 @@ let g:hardtime_maxcount = 3
 " map <Leader>h :HardTimeToggl
 
 "toggl
-let g:toggl_api_token = "d990c0fb76de4364d65c83b36f7cad24"
 call ctrlp_bdelete#init()
 let g:ctrlp_open_multiple_files='2vjr'
 let g:ctrlp_extensions = ['buffertag', 'tag', 'line', 'dir']
