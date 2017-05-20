@@ -403,7 +403,7 @@ endif
 " nnoremap ; :
 set guitablabel=\[%N\]\ %t\ %M
 set ttyfast
-inoremap jj <ESC>
+inoremap jj <ESC>:w<CR>
 nnoremap <silent> <F11> :YRShow<cr>
 inoremap <silent> <F11> <ESC>:YRShow<cr>
 " let g:airline#extensions#tabline#enabled = 1
@@ -426,7 +426,7 @@ inoremap <silent> <F11> <ESC>:YRShow<cr>
 "
 " au InsertLeave * hi Cursor guibg=red
 " au InsertEnter * hi Cursor guibg=green
-set guifont=Menlo\ for\ Powerline:h13
+set guifont=Menlo\ for\ Powerline:h14
 let g:plantuml_executable_script='java -jar ~/plantuml.jar'
 
 
@@ -546,7 +546,7 @@ set timeoutlen=1000 ttimeoutlen=0
 " set nofoldenable
 " let g:airline#extensions#tabline#enabled = 0
 
-nnoremap <leader>c :%s/className=\'\(\w*\)\'/className={styles.\1}<cr>
+nnoremap <leader>c :%s/class=\"\(\w*\)\"/class={styles.\1}<cr>
 let g:hardtime_default_on = 0
 let g:hardtime_timeout = 1000
 let g:list_of_insert_keys = []

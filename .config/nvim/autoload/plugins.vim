@@ -1,7 +1,7 @@
 func! plugins#configure()
   " NERDTree
   nmap <F12> :NERDTreeTabsToggle<CR>
-  let g:NERDTreeShowBookmarks=0
+  let g:NERDTreeShowBookmarks=1
   let g:NERDTreeChDirMode=2
   let g:NERDTreeQuitOnOpen=0
   let g:NERDTreeShowHidden=0
@@ -25,7 +25,7 @@ func! plugins#configure()
   let g:bookmark_center = 1
   let g:bookmark_save_per_working_dir = 1
   let g:bookmark_auto_save = 1
-  let g:bookmark_no_default_key_mappings = 1
+  " let g:bookmark_no_default_key_mappings = 1
   " }}}
 
   let g:neomake_javascript_enabled_makers = ['eslint']
@@ -104,24 +104,20 @@ func! plugins#configure()
       \ 'repeat(" ", (&columns / 2) - (l:longest_line / 2)) . v:val')
     return l:centered_lines
   endfunc
-  let s:custom_header =
-     \ map(split(system('fortune | cowsay'), '\n'), '"   ". v:val') + ['','', split(system('~/csssr/earn.sh'), '\n')[0], '', '']
+  " let s:custom_header =
+  "   \ map(split(system('fortune | cowsay'), '\n'), '"   ". v:val') + ['','', split(system('~/csssr/earn.sh'), '\n')[0], '', '']
 	" let g:startify_custom_header = [split(system('~/csssr/earn.sh'), '\n')[0]] + ['', '']
-  let g:startify_custom_header = s:filter_header(s:custom_header)
+  " let g:startify_custom_header = s:filter_header(s:custom_header)
   let g:startify_files_number = 10
   let g:startify_change_to_dir = 0
   let g:startify_change_to_vcs_root = 0
   let g:startify_relative_path = 1
   let g:startify_bookmarks = [
-        \ '~/.config/nvim/init.vim',
+        \ '~/.config/nvim/autoload/plugins.vim',
+        \ '~/csssr/earnToday.sh',
+        \ '~/.config/nvim/autoload/mappings.vim',
         \ '~/.bashrc',
-        \ '~/csssr/4redux',
-        \ '~/csssr/csi',
-        \ '~/csssr/hb',
-        \ '~/csssr/mg',
-        \ '~/csssr/relef',
-        \ '~/csssr/de/de-alpha',
-        \ '~/csssr/de/de-front'
+        \ '~/.tmux.conf'
         \ ]
   let g:startify_session_dir = '~/.config/nvim/sessions'
   let g:startify_session_autoload = 1
@@ -271,3 +267,5 @@ func! plugins#bind()
   call plugins#configure()
   filetype plugin indent on
 endfunc
+" let g:ctrlp_match_window = 'results:100' " overcome limit imposed by max height
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:30,results:30'

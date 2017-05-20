@@ -2,11 +2,10 @@
 csi ~/csssr/csi
 de-alpha ~/csssr/de/de-alpha
 de-front ~/csssr/de/de-front
-de-front ~/csssr/de/de-front
 hb ~/csssr/hb
+lims ~/csssr/lims
 mg ~/csssr/mg
 relef ~/csssr/relef
 vim-imater ~/csssr/neovim/vimimater
 wiki ~/Dropbox/vimwiki
 
-redux-boilerplate ~/csssr/redux-boilerplate

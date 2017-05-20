@@ -1,4 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_cnt =4
 let g:netrw_dirhist_1='/Users/iBook/csssr/mg/src/components/MenuLink'
 let g:netrw_dirhist_2='/Users/iBook/csssr/mg'
+let g:netrw_dirhist_3='/Users/iBook/csssr/neovim/vimimater/.config/nvim/doc'
+let g:netrw_dirhist_4='/Users/iBook/csssr/hb/config'

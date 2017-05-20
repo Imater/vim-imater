@@ -2,3 +2,4 @@
 /plugged/
 /sessions/
 /backups/
+*.DS_Store

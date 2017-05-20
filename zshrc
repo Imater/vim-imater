@@ -5,3 +5,6 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 bindkey '^T' autosuggest-toggle
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
 
+HISTSIZE=1000
+SAVEHIST=1000
+HISTFILE=~/.history
