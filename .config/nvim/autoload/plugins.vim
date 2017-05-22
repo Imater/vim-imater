@@ -1,6 +1,6 @@
 func! plugins#configure()
   " NERDTree
-  nmap <F12> :NERDTreeTabsToggle<CR>
+  nmap <F12> :NERDTreeToggle<CR>
   let g:NERDTreeShowBookmarks=1
   let g:NERDTreeChDirMode=2
   let g:NERDTreeQuitOnOpen=0

@@ -342,7 +342,7 @@ try
 catch /^Vim\%((\a\+)\)\=:E185/
   echo "Solarized theme not found. Run :BundleInstall"
 endtry
-"colorscheme base16-colors
+" colorscheme base16-colors
 " colorscheme molokai
 set nocursorcolumn
 set nocursorline
