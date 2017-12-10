@@ -10,7 +10,7 @@ func! mappings#bind()
   " Clear the search highlight in Normal mode
   nnoremap <silent> <Esc><Esc> :nohlsearch<CR><Esc>
 
-  map <C-c> <silent>"*y
+  map <C-c> "*y
 
   " < >
   vnoremap < <gv
@@ -30,7 +30,7 @@ func! mappings#bind()
   " ,a
   " Fast grep
   " Recursive search in current directory for matches with current word
-  map <Leader>a :execute "Ack " . expand("<cword>") <Bar> cw<CR>
+  " map <Leader>a :execute "Ack " . expand("<cword>") <Bar> cw<CR>
 
   " ,s
   " Shortcut for :%s//
@@ -47,7 +47,7 @@ func! mappings#bind()
   vmap <C-S-j> xp'[V']
 
   " Y from cursor position to the end of line
-  nnoremap Y y$
+  nnoremap Y "*y
 
   " Pasting with correct indention
   nmap p p=`]
@@ -315,3 +315,4 @@ function! ToggleGUINoise()
   endif
 endfunction
 
+au BufAdd * exe "cd" fnameescape(getcwd())

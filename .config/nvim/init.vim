@@ -498,7 +498,7 @@ else
 endif
 
 set nonumber
-set relativenumber
+" set relativenumber
 
 let g:emmet_html5=1
 let g:user_emmet_settings = {
@@ -565,10 +565,13 @@ let autowriteall=1
 set suffixesadd+=.js
 set suffixesadd+=.jsx
 set path+=$PWD/node_modules
+set path+=$PWD/src
 set number
 :let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 cnoreabbrev Ack Ack!
-nnoremap <Leader>a :Ack!<Space>
+nnoremap <Leader>a :Gcd <bar> Ack! --literal ''<left>
+
+nnoremap <Leader>A :execute "Gcd <bar> Ack! --literal " . expand("<cword>") <Bar> cw<CR>
 
 execute pathogen#infect()
 let g:flow#enable = 0
@@ -579,3 +582,21 @@ au BufNewFile,BufRead *.sss set filetype=css.stylus.sugarss
 " set clipboard=unnamed
 
 let g:calendar_monday = 1
+
+highlight htmlArg cterm=italic
+
+autocmd VimEnter * silent NERDTree
+let g:netrw_browse_split = 0
+" autocmd FileType netrw setl bufhidden=delete
+set nohidden
+
+augroup netrw_buf_hidden_fix
+    autocmd!
+
+    " Set all non-netrw buffers to bufhidden=hide
+    autocmd BufWinEnter *
+                \  if &ft != 'netrw'
+                \|     set bufhidden=hide
+                \| endif
+
+augroup end

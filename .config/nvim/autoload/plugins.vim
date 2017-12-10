@@ -2,9 +2,9 @@ func! plugins#configure()
   " NERDTree
   nmap <F12> :NERDTreeToggle<CR>
   let g:NERDTreeShowBookmarks=1
-  let g:NERDTreeChDirMode=2
+  let g:NERDTreeChDirMode=1
   let g:NERDTreeQuitOnOpen=0
-  let g:NERDTreeShowHidden=0
+  let g:NERDTreeShowHidden=1
   let g:NERDTreeKeepTreeInNewTab=0
   " Disable display of the 'Bookmarks' label and 'Press ? for help' text
   let g:NERDTreeMinimalUI=1
@@ -144,7 +144,7 @@ func! plugins#define()
   Plug 'dojoteef/neomake-autolint'
   Plug 'leafgarland/typescript-vim'
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+  " Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
   Plug 'lifepillar/vim-cheat40'
   Plug 'vimlab/split-term.vim'
   " Libs
@@ -232,7 +232,7 @@ func! plugins#define()
   " JSON
   Plug 'git://github.com/leshill/vim-json.git'
   " Start screen
-  Plug 'mhinz/vim-startify'
+  " Plug 'mhinz/vim-startify'
   Plug 'kopischke/vim-stay'
   Plug 'postcss/sugarss'
   Plug 'hhsnopek/vim-sugarss'
@@ -241,21 +241,21 @@ func! plugins#define()
   Plug 'mattn/webapi-vim'
     \ | Plug 'mattn/gist-vim', { 'on': 'Gist' }
 
-  Plug 'terryma/vim-multiple-cursors'
-    \ | Plug 'nathanaelkane/vim-indent-guides'
-    \ | Plug 'tpope/vim-dispatch'
-    \ | Plug 'tpope/vim-endwise'
-    \ | Plug 'tpope/vim-fugitive'
-    \ | Plug 'tpope/vim-jdaddy', { 'for': 'json' }
-    \ | Plug 'tpope/vim-rbenv', { 'for': 'ruby' }
-    \ | Plug 'tpope/vim-repeat'
-    \ | Plug 'tpope/vim-rhubarb'
-    \ | Plug 'tpope/vim-rsi'
-    \ | Plug 'tpope/vim-speeddating'
-    \ | Plug 'tpope/vim-surround'
-    \ | Plug 'tpope/vim-vinegar'
-    \ | Plug 'tpope/vim-abolish'
-    \ | Plug 'radenling/vim-dispatch-neovim'
+  " Plug 'terryma/vim-multiple-cursors'
+  "   \ | Plug 'nathanaelkane/vim-indent-guides'
+  "   \ | Plug 'tpope/vim-dispatch'
+  "   \ | Plug 'tpope/vim-endwise'
+  "   \ | Plug 'tpope/vim-fugitive'
+  "   \ | Plug 'tpope/vim-jdaddy', { 'for': 'json' }
+  "   \ | Plug 'tpope/vim-rbenv', { 'for': 'ruby' }
+  "   \ | Plug 'tpope/vim-repeat'
+  "   \ | Plug 'tpope/vim-rhubarb'
+  "   \ | Plug 'tpope/vim-rsi'
+  "   \ | Plug 'tpope/vim-speeddating'
+  "   \ | Plug 'tpope/vim-surround'
+  "   \ | Plug 'tpope/vim-vinegar'
+  "   \ | Plug 'tpope/vim-abolish'
+  "   \ | Plug 'radenling/vim-dispatch-neovim'
 
 
   " Add plugins to &runtimepath
