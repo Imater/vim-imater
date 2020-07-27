@@ -27,11 +27,11 @@ func! plugins#configure()
   let g:bookmark_auto_save = 1
   " let g:bookmark_no_default_key_mappings = 1
   " }}}
-
+  "
   let g:neomake_javascript_enabled_makers = ['eslint']
   let g:neomake_typescript_tsc_maker = {
         \ 'args': [
-        \ '-m', 'commonjs', '--noEmit', '--target', 'ES5', '--experimentalDecorators'
+        \ '-p', './tsconfig.json', '-m', 'commonjs', '--noEmit', '--target', 'ES5', '--experimentalDecorators'
         \ ],
         \ 'errorformat':
         \ '%E%f %#(%l\,%c): error %m,' .
@@ -67,6 +67,7 @@ func! plugins#configure()
   let g:tern_request_timeout = 1
   let g:tern#arguments = ["--persistant"]
   let g:deoplete#auto_completion_start_length = 2
+  " let g:deoplete#num_processes = 1
   let g:tern_show_signature_in_pum = '0'  " This do disable full signature type on autocomplete
 
   " Add extra filetypes
@@ -82,20 +83,6 @@ func! plugins#configure()
   let s:vimwiki_autowriteall=1
   " }}}
 
-  " {{{ easymotion
-  map  <Leader>f <Plug>(easymotion-bd-f)
-  nmap <Leader>f <Plug>(easymotion-overwin-f)
-  "
-  " " s{char}{char} to move to {char}{char}
-  nmap <Leader><space> <Plug>(easymotion-overwin-f2)
-  "
-  " " Move to line
-  map <Leader>L <Plug>(easymotion-bd-jk)
-  nmap <Leader>L <Plug>(easymotion-overwin-line)
-  "
-  " " Move to word
-  map  <Leader>w <Plug>(easymotion-bd-w)
-  nmap <Leader>w <Plug>(easymotion-overwin-w)
   " }}}
   " {{{ startify screen
   func! s:filter_header(lines) abort
@@ -151,7 +138,6 @@ func! plugins#define()
   Plug 'lfilho/cosco.vim'
   Plug 'easymotion/vim-easymotion'
   Plug 'takac/vim-hardtime'
-  Plug 'termoshtt/toggl.nvim'
   Plug 'j5shi/ctrlp_bdelete.vim'
   Plug 'vim-jp/vital.vim'
   Plug 'vim-scripts/HJKL'
@@ -237,6 +223,7 @@ func! plugins#define()
   Plug 'postcss/sugarss'
   Plug 'hhsnopek/vim-sugarss'
   Plug 'moll/vim-node'
+  Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
 	" Plug 'ternjs/tern_for_vim'
   Plug 'mattn/webapi-vim'
     \ | Plug 'mattn/gist-vim', { 'on': 'Gist' }
@@ -255,7 +242,16 @@ func! plugins#define()
   "   \ | Plug 'tpope/vim-surround'
   "   \ | Plug 'tpope/vim-vinegar'
   "   \ | Plug 'tpope/vim-abolish'
-  "   \ | Plug 'radenling/vim-dispatch-neovim'
+  "
+  " Vim-Plug
+  " REQUIRED: Add a syntax file. YATS is the best
+  Plug 'HerringtonDarkholme/yats.vim'
+  Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+  " For async completion
+  Plug 'Shougo/deoplete.nvim'
+  " For Denite features
+  Plug 'Shougo/denite.nvim'
+
 
 
   " Add plugins to &runtimepath
@@ -269,3 +265,4 @@ func! plugins#bind()
 endfunc
 " let g:ctrlp_match_window = 'results:100' " overcome limit imposed by max height
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:30,results:30'
+

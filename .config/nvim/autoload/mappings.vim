@@ -5,7 +5,7 @@ func! mappings#bind()
   " ,m
   " Toggle mouse support in Normal mode
   set mouse=a
-  nnoremap <leader>m :call ToggleMouse()<CR>
+  "nnoremap <leader>m :call ToggleMouse()<CR>
 
   " Clear the search highlight in Normal mode
   nnoremap <silent> <Esc><Esc> :nohlsearch<CR><Esc>
@@ -26,6 +26,21 @@ func! mappings#bind()
   " Vim 7.3 required
   let g:relativenumber = 0
   map <Leader>nm :call ToogleRelativeNumber()<cr>
+  "
+  " {{{ easymotion
+  map  <Leader>f <Plug>(easymotion-bd-f)
+  nmap <Leader>f <Plug>(easymotion-overwin-f)
+  "
+  " " s{char}{char} to move to {char}{char}
+  nmap <Leader><space> <Plug>(easymotion-overwin-f2)
+  "
+  " " Move to line
+  map <Leader>L <Plug>(easymotion-bd-jk)
+  nmap <Leader>L <Plug>(easymotion-overwin-line)
+  "
+  " " Move to word
+  map  <Leader>w <Plug>(easymotion-bd-w)
+  nmap <Leader>w <Plug>(easymotion-overwin-w)
 
   " ,a
   " Fast grep
@@ -78,8 +93,10 @@ func! mappings#bind()
   " ,v
   " Open the .vimrc in a new buffer
   nmap <leader>v :e $MYVIMRC<CR>
+  nmap <leader>m :e coding/vim-imater/.config/nvim/autoload/mappings.vim<CR>
   " :cabbrev e NERDTreeClose<CR>:e!
   nmap <leader>h :e /private/etc/hosts<CR>
+  nmap <leader>ng :e /usr/local/etc/nginx/nginx.conf<CR>
 
   " ,sn - snippets
   nmap <leader>sn :e ~/.vim/UltiSnips/all.snippets<CR>
@@ -109,6 +126,8 @@ func! mappings#bind()
   " gf
   " Open file under cursor in a new vertical split
   nmap gf :below wincmd f<CR>
+
+  map <F8> :let mycurf=expand("<cfile>")<cr><c-w> w :execute("e ".mycurf)<cr><c-w>p
 
   " Create a new window relative to the current one
   nmap <Leader><left>  :leftabove  vnew<CR>
@@ -198,9 +217,6 @@ func! mappings#bind()
   map <Leader>g :BufOnly<CR>
   map <Leader>t :25Term<CR>
   map <Leader>tv :100VTerm<CR>
-
-  nmap <Leader>tgs :TogglStart review +CSSSR_deplomat @coding
-  nmap <Leader>tgp :TogglStop<CR>:!~/csssr/earn.sh<CR>
 
   nmap <Leader>d :new \| :resize 15 \| :VimwikiMakeDiaryNote<CR>
 

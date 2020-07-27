@@ -491,10 +491,10 @@ let g:markdown_github_languages = ['JavaScript', 'HTML', 'go']
 " au BufNewFile,BufRead *.wiki setf markdown
 
 let hour = strftime("%H")
-if 11 <= hour && hour < 16
+if 18 <= hour && hour < 20
   set background=light
 else
-  set background=light
+  set background=dark
 endif
 
 set nonumber
@@ -585,7 +585,7 @@ let g:calendar_monday = 1
 
 highlight htmlArg cterm=italic
 
-autocmd VimEnter * silent NERDTree
+" autocmd VimEnter * silent NERDTree
 let g:netrw_browse_split = 0
 " autocmd FileType netrw setl bufhidden=delete
 set nohidden
@@ -600,3 +600,4 @@ augroup netrw_buf_hidden_fix
                 \| endif
 
 augroup end
+let g:toggl_api_token ='d990c0fb76de4364d65c83b36f7cad24'
