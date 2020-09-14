@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =3
+let g:netrw_dirhistcnt =5
+let g:netrw_dirhist_5='/Users/johnwec/coding/utair/utair-frontend-monorepo/packages/ui/components/Selector'
+let g:netrw_dirhist_4='/Users/johnwec/coding/vim-imater/.config/nvim/autoload'
 let g:netrw_dirhist_3='/Users/johnwec/coding/utair/utair-frontend-monorepo/packages/ui/components/Select'
 let g:netrw_dirhist_2='/Users/johnwec/coding/utair/utair-frontend-monorepo/packages/frontend-app/components/support/containers/SupportForm'
 let g:netrw_dirhist_1='/Users/johnwec/coding/tinkoff/tinkoff-portal-web/packages/platform-utils/react'

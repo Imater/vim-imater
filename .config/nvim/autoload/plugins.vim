@@ -1,6 +1,5 @@
 func! plugins#configure()
   " NERDTree
-  nmap <F12> :NERDTreeToggle<CR>
   let g:NERDTreeShowBookmarks=1
   let g:NERDTreeChDirMode=1
   let g:NERDTreeQuitOnOpen=0
@@ -56,27 +55,31 @@ func! plugins#configure()
   autocmd! BufEnter * Neomake
   let g:neomake_autolint_enabled = 0
   let g:neomake_autolint_sign_column_always = 0
+  let b:eslint_exe = substitute(system('npm bin') ,'\n', '', 'g') . '/eslint'
+ 
+  let b:neomake_eslint_exe = b:eslint_exe
   " }}}
 
   let g:jsx_ext_required = 0 " Allow JSX in normal JS files
   let g:javascript_plugin_flow = 1
 
   " {{{ deoplete
-  let g:deoplete#enable_at_startup = 1
+  " let g:deoplete#enable_at_startup = 1
+  " call deoplete#custom#option('num_processes', 1)
 
-  let g:tern_request_timeout = 1
-  let g:tern#arguments = ["--persistant"]
-  let g:deoplete#auto_completion_start_length = 2
+  " let g:tern_request_timeout = 1
+  " let g:tern#arguments = ["--persistant"]
+  " let g:deoplete#auto_completion_start_length = 4
   " let g:deoplete#num_processes = 1
-  let g:tern_show_signature_in_pum = '0'  " This do disable full signature type on autocomplete
+  " let g:tern_show_signature_in_pum = '0'  " This do disable full signature type on autocomplete
 
   " Add extra filetypes
-  let g:tern#filetypes = [
-        \ 'jsx',
-        \ 'js',
-        \ 'javascript.jsx',
-        \ 'vue'
-        \ ]
+  " let g:tern#filetypes = [
+  "       \ 'jsx',
+  "       \ 'js',
+  "       \ 'javascript.jsx',
+  "       \ 'vue'
+  "       \ ]
   " }}}
 
   " {{{ vimwiki
@@ -130,7 +133,7 @@ func! plugins#define()
   Plug 'benjie/neomake-local-eslint.vim'
   Plug 'dojoteef/neomake-autolint'
   Plug 'leafgarland/typescript-vim'
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   " Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
   Plug 'lifepillar/vim-cheat40'
   Plug 'vimlab/split-term.vim'
@@ -165,7 +168,7 @@ func! plugins#define()
     \ | Plug 'jistr/vim-nerdtree-tabs'
 
   Plug 'jistr/vim-nerdtree-tabs'
-  Plug 'git://github.com/ervandew/supertab.git'
+  " Plug 'git://github.com/ervandew/supertab.git'
   Plug 'git://github.com/powerman/vim-plugin-ruscmd'
   Plug 'git://github.com/vim-scripts/YankRing.vim'
   Plug 'majutsushi/tagbar'
@@ -223,7 +226,7 @@ func! plugins#define()
   Plug 'postcss/sugarss'
   Plug 'hhsnopek/vim-sugarss'
   Plug 'moll/vim-node'
-  Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
+  Plug 'shumphrey/fugitive-gitlab'
 	" Plug 'ternjs/tern_for_vim'
   Plug 'mattn/webapi-vim'
     \ | Plug 'mattn/gist-vim', { 'on': 'Gist' }
@@ -247,10 +250,13 @@ func! plugins#define()
   " REQUIRED: Add a syntax file. YATS is the best
   Plug 'HerringtonDarkholme/yats.vim'
   Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
   " For async completion
-  Plug 'Shougo/deoplete.nvim'
+  " Plug 'Shougo/deoplete.nvim'
   " For Denite features
   Plug 'Shougo/denite.nvim'
+  Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+  Plug 'takac/vim-spotifysearch'
 
 
 

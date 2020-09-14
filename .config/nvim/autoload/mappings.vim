@@ -1,7 +1,42 @@
 func! mappings#bind()
   " Шорткаты
   let g:mapleader = ","
+  nmap <F12> :NERDTreeToggle<CR>
 
+  inoremap jj <ESC>:w<CR>
+  nnoremap <silent> <F10> :YRShow<cr>
+  inoremap <silent> <F10> <ESC>:YRShow<cr>
+  map <Leader>l :NERDTreeFind<CR>
+  nmap <space> :CtrlPBuffer<CR>
+  nmap <Tab> <Plug>(ctrlp)
+
+  map <leader>td :TernDoc<CR>
+  map <leader>tb :TernDocBrowse<CR>
+  map <leader>tt :TernType<CR>
+  map <leader>td :TernDef<CR>
+  map <leader>tpd :TernDefPreview<CR>
+  map <leader>tr :TernRefs<CR>
+  map <leader>tR :TernRename<CR>
+
+  set autochdir
+
+  " map <Leader>1 :source ~/.config/nvim/sessions/imater.vim<CR>
+  " map <Leader>2 :mksession! ~/.config/nvim/sessions/imater.vim<CR>
+  " Save session on quitting Vim
+  " autocmd VimLeave * NERDTreeClose
+  " autocmd VimLeave * mksession! ~/.config/nvim/sessions/imater.vim
+
+  " Restore session on starting Vim
+  " autocmd VimEnter * :source ~/.config/nvim/sessions/imater.vim
+  " autocmd VimEnter * NERDTree
+
+
+  nnoremap <Leader>a :Gcd <bar> Ack! --literal ''<left>
+  nnoremap <Leader>A :execute "Gcd <bar> Ack! --literal " . expand("<cword>") <Bar> cw<CR>
+
+  map <Leader>H :HardTimeToggl
+
+  nnoremap <leader>c :%s/class=\"\(\w*\)\"/class={styles.\1}<cr>
   " ,m
   " Toggle mouse support in Normal mode
   set mouse=a
@@ -24,7 +59,6 @@ func! mappings#bind()
   " Switch type of line numbers
   " http://stackoverflow.com/questions/4387210/vim-how-to-map-two-tasks-under-one-shortcut-key
   " Vim 7.3 required
-  let g:relativenumber = 0
   map <Leader>nm :call ToogleRelativeNumber()<cr>
   "
   " {{{ easymotion
@@ -54,7 +88,6 @@ func! mappings#bind()
 
   " Move lines
   " Move one line
-  nmap <C-S-k> ddkP
   nmap <C-S-j> ddp
   " Move selected lines
   " See http://www.vim.org/scripts/script.php?script_id=1590
@@ -93,7 +126,7 @@ func! mappings#bind()
   " ,v
   " Open the .vimrc in a new buffer
   nmap <leader>v :e $MYVIMRC<CR>
-  nmap <leader>m :e coding/vim-imater/.config/nvim/autoload/mappings.vim<CR>
+  nmap <leader>m :e ~/coding/vim-imater/.config/nvim/autoload/mappings.vim<CR>
   " :cabbrev e NERDTreeClose<CR>:e!
   nmap <leader>h :e /private/etc/hosts<CR>
   nmap <leader>ng :e /usr/local/etc/nginx/nginx.conf<CR>
@@ -207,8 +240,8 @@ func! mappings#bind()
   inoremap [<CR> [<CR>]<Esc>O
 
   " Fold with space
-  nnoremap <Space> za
-  vnoremap <Space> zf
+  " nnoremap <Space> za
+  " vnoremap <Space> zf
 
   " Switch tabs with <Tab>
   nmap <PageDown> :BuffergatorMruCycleNext<CR>
@@ -292,43 +325,24 @@ function! Replace()
   :unlet! s:word
 endfunction
 
-function! ToggleMouse()
-  if &mouse == 'a'
-    set mouse=
-    echo "Mouse usage disabled"
-  else
-    set mouse=a
-    echo "Mouse usage enabled"
-  endif
-endfunction
-
-function! ToogleRelativeNumber()
-  if g:relativenumber == 0
-    let g:relativenumber = 1
-    set norelativenumber
-    set number
-    echo "Show line numbers"
-  elseif g:relativenumber == 1
-    let g:relativenumber = 2
-    set nonumber
-    set relativenumber
-    echo "Show relative line numbers"
-  else
-    let g:relativenumber = 0
-    set nonumber
-    set norelativenumber
-    echo "Show no line numbers"
-  endif
-endfunction
-
-function! ToggleGUINoise()
-  if &go==''
-    exec('se go=mTrL')
-    echo "Show GUI elements"
-  else
-    exec('se go=')
-    echo "Show no GUI elements"
-  endif
-endfunction
-
 au BufAdd * exe "cd" fnameescape(getcwd())
+
+autocmd FileType javascript,css,typescript nmap <silent> <Leader>; <Plug>(cosco-commaOrSemiColon)
+autocmd FileType javascript,css,typescript imap <silent> <Leader>; <c-o><Plug>(cosco-commaOrSemiColon)
+
+set scrolloff=3
+set shell=sh
+set noshiftround
+set shiftwidth=2
+set shortmess+=A
+set shortmess+=I
+set shortmess+=O
+set shortmess+=T
+set shortmess+=W
+set shortmess+=a
+set shortmess+=o
+set shortmess+=t
+
+if exists('##TextYankPost')
+  autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank('Substitute', 200)
+endif

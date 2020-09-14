@@ -1,3 +1,4 @@
 *.DS_Store
 /yarn/
 /browser-launcher2/
+/nvim/plugged
